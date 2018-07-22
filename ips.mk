@@ -24,6 +24,7 @@ ips-clean:
 	rm -rf ${IPS_BUILD_DIR} ${IPS_TMP_DIR}
 
 ips-prototype:
+	mkdir -p ${IPS_TMP_DIR}
 	# Store initial transform
 	echo "$$IPS_TRANSFORM" > ${IPS_TMP_DIR}/transform.mog
 
