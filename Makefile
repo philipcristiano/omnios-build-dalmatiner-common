@@ -7,10 +7,6 @@ RELEASE_DIR=src/_build/default/rel
 
 export TARGET_DIRECTORY
 
-build:
-
-	cd src; ./rebar3 release -d false # -d false: disable dev mode
-
 package:
 	@echo do packagey things!
 	mkdir ${IPS_BUILD_DIR}/data
