@@ -1,0 +1,29 @@
+PROJECT=dalmatiner-common
+VERSION=0.3.4
+PROJECT_VERSION=${VERSION}
+REPO=https://gitlab.com/Project-FiFo/DalmatinerDB/dalmatinerdb.git
+TARGET_DIRECTORY=/opt/dalmatinerdb
+RELEASE_DIR=src/_build/default/rel
+
+export TARGET_DIRECTORY
+
+build:
+
+	cd src; ./rebar3 release -d false # -d false: disable dev mode
+
+package:
+	@echo do packagey things!
+	mkdir ${IPS_BUILD_DIR}/data
+
+  # Remove git files/dirs
+	cp LICENSE.pkg ${IPS_BUILD_DIR}/
+
+publish: ips-package
+ifndef PKGSRVR
+	echo "Need to define PKGSRVR, something like http://localhost:10000"
+	exit 1
+endif
+	pkgsend publish -s ${PKGSRVR} -d ${IPS_BUILD_DIR} ${IPS_TMP_DIR}/pkg.pm5.final
+	pkgrepo refresh -s ${PKGSRVR}
+
+include ips.mk
