@@ -9,7 +9,7 @@ export TARGET_DIRECTORY
 
 package:
 	@echo do packagey things!
-	mkdir ${IPS_BUILD_DIR}/data
+	mkdir -p ${IPS_BUILD_DIR}/data
 
   # Remove git files/dirs
 	cp LICENSE.pkg ${IPS_BUILD_DIR}/
