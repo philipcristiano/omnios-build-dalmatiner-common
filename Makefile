@@ -11,9 +11,6 @@ package:
 	@echo do packagey things!
 	mkdir -p ${IPS_BUILD_DIR}/data
 
-  # Remove git files/dirs
-	cp LICENSE.pkg ${IPS_BUILD_DIR}/
-
 publish: ips-package
 ifndef PKGSRVR
 	echo "Need to define PKGSRVR, something like http://localhost:10000"
