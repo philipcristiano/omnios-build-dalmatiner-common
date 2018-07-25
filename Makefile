@@ -11,6 +11,10 @@ package:
 	@echo do packagey things!
 	mkdir -p ${IPS_BUILD_DIR}/data
 
+	# SMF
+	mkdir -p ${IPS_BUILD_DIR}/lib/svc/manifest/application/
+	cp epmd.xml ${IPS_BUILD_DIR}/lib/svc/manifest/application/dalmatinerdb-epmd.xml
+
 publish: ips-package
 ifndef PKGSRVR
 	echo "Need to define PKGSRVR, something like http://localhost:10000"
